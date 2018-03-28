@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', 'UsersController@login');
+Route::post('login', 'UsersController@auth');
+
+Route::post('logout', 'UsersController@logout');
+
+Route::get('/', 'AdvertsController@index');
+
+Route::get('/edit', 'AdvertsController@create');
+Route::post('/edit', 'AdvertsController@store');
+
+Route::get('/{advert}', 'AdvertsController@show');
+
+Route::get('/edit/{advert}', 'AdvertsController@edit');
+Route::patch('/edit/{advert}', 'AdvertsController@update');
+
+Route::delete('/delete/{advert}', 'AdvertsController@destroy');
