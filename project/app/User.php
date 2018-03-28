@@ -22,6 +22,18 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
+
+    public $timestamps = false;
+
+    public function setRememberTokenAttribute($value)
+    {
+        // to Disable remember_token
+    }
+
+    public function adverts()
+    {
+        return $this->hasMany('App\Advert');
+    }
 }
