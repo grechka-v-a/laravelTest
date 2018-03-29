@@ -17,8 +17,9 @@ class CreateAdvertsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->integer('user_id');
-            $table->timestamp('created_at')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->dateTime('created_at')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
