@@ -10,12 +10,8 @@ use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
-    public function login(Request $request)
-    {
-        return view('users.auth');
-    }
 
-    public function auth(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -31,7 +27,7 @@ class UsersController extends Controller
                 return redirect()->intended('/');
             }
 
-            return redirect('/login')->withErrors(['password' => 'Wrong Password']);
+            return redirect('/')->withErrors(['password' => 'Wrong Password']);
         }
         else
         {
@@ -42,7 +38,7 @@ class UsersController extends Controller
                 return redirect()->intended('/');
             }
 
-            return redirect('/login');
+            return redirect('/');
         }
     }
 
