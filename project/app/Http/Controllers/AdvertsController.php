@@ -115,6 +115,11 @@ class AdvertsController extends Controller
 
         $advert = Advert::find($id);
 
+        if (Auth::user()->id != $advert->user_id)
+        {
+            return redirect('/');
+        }
+
         $advert->timestamps = false;
         $advert->title = $request->input('title');
         $advert->description = $request->input('description');
