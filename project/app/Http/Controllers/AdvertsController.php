@@ -88,6 +88,11 @@ class AdvertsController extends Controller
     public function edit(Advert $advert)
     {
 
+        if (Auth::user()->id != $advert->user_id)
+        {
+            return redirect('/');
+        }
+
         return view('adverts.edit', compact('advert'));
 
     }
@@ -131,6 +136,11 @@ class AdvertsController extends Controller
     {
 
         $advert = Advert::find($id);
+
+        if (Auth::user()->id != $advert->user_id)
+        {
+            return redirect('/');
+        }
 
         $advert->delete();
 
