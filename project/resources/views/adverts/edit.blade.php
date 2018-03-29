@@ -13,11 +13,11 @@
                     @method('patch')
                     <div class="form-group">
                         <label for="title">Title:</label>
-                        <input name="title" class="form-control" id="title" value="{{ $advert->title }}" required>
+                        <input name="title" class="form-control" id="title" value="{{ old('title', $advert->title) }}" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <textarea name="description" rows="5" class="form-control" id="desc" required>{{ $advert->description }}</textarea>
+                        <textarea name="description" rows="5" class="form-control" id="desc" required>{{ old('description', $advert->description) }}</textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
