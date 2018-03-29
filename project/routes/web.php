@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('login', 'UsersController@login');
-Route::post('login', 'UsersController@auth');
-
-Route::post('logout', 'UsersController@logout');
-
 Route::get('/', 'AdvertsController@index');
+
+Route::post('login', 'UsersController@login');
+Route::post('logout', 'UsersController@logout');
 
 Route::get('/edit', 'AdvertsController@create');
 Route::post('/edit', 'AdvertsController@store');
