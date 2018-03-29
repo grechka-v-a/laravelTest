@@ -12,6 +12,16 @@ class Advert extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description',
+        'title', 'description', 'user_id',
     ];
+
+    public function setUpdatedAtAttribute($value)
+    {
+        // to Disable updated_at
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
